@@ -2,11 +2,17 @@ import numpy as np
 import pickle
 import pandas as pd
 import streamlit as st
+import gdown
+
+# Google Drive Model URL
+url = "https://drive.google.com/uc?id=16WePgQYxSTZYASn6eMptJVgPQIlY1NBF"
+output = "crop_pred_rand.pkl"
+gdown.download(url, output, quiet=False)
 
 # Load models
 models = {
     "Decision Tree": pickle.load(open("crop_pred_dtree.pkl", "rb")),
-    "Random Forest": pickle.load(open("crop_pred_rand.pkl", "rb")),
+    "Random Forest": pickle.load(open(output, "rb")),
     "K-Nearest Neighbors (KNN)": pickle.load(open("crop_pred_knn.pkl", "rb")),
     "Support Vector Machine (SVM)": pickle.load(open("crop_pred_svc.pkl", "rb"))
 }
