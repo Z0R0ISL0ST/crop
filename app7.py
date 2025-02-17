@@ -7,8 +7,8 @@ import gdown
 # Google Drive Model URLs
 dtree_url = "https://drive.google.com/uc?id=1XhOm4mtO2xuoOln4Kug7PZZj3y9FeK8v"
 rand_url = "https://drive.google.com/uc?id=1HxhlV3ScGPX7JW5sQ6bn3Js97zGP_rkc"
-knn_url = "https://drive.google.com/uc?id=16WePgQYxSTZYASn6eMptJVgPQIlY1NBF"
-svc_url = "https://drive.google.com/uc?id=YOUR_SVM_MODEL_ID"
+knn_url = "https://drive.google.com/uc?id=1851T5UKsK8OMDQXjPc65A_OB3HhcE9k3"
+svc_url = "https://drive.google.com/uc?id=1R6UqE5D_gLewL3rjxjr5OvnpcNQL10ZK"
 
 # Output filenames
 dtree_output = "crop_pred_dtree.pkl"
