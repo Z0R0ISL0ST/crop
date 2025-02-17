@@ -4,17 +4,30 @@ import pandas as pd
 import streamlit as st
 import gdown
 
-# Google Drive Model URL
-url = "https://drive.google.com/uc?id=16WePgQYxSTZYASn6eMptJVgPQIlY1NBF"
-output = "crop_pred_rand.pkl"
-gdown.download(url, output, quiet=False)
+# Google Drive Model URLs
+dtree_url = "https://drive.google.com/uc?id=1XhOm4mtO2xuoOln4Kug7PZZj3y9FeK8v"
+rand_url = "https://drive.google.com/uc?id=1HxhlV3ScGPX7JW5sQ6bn3Js97zGP_rkc"
+knn_url = "https://drive.google.com/uc?id=16WePgQYxSTZYASn6eMptJVgPQIlY1NBF"
+svc_url = "https://drive.google.com/uc?id=YOUR_SVM_MODEL_ID"
+
+# Output filenames
+dtree_output = "crop_pred_dtree.pkl"
+rand_output = "crop_pred_rand.pkl"
+knn_output = "crop_pred_knn.pkl"
+svc_output = "crop_pred_svc.pkl"
+
+# Download models from Google Drive
+gdown.download(dtree_url, dtree_output, quiet=False)
+gdown.download(rand_url, rand_output, quiet=False)
+gdown.download(knn_url, knn_output, quiet=False)
+gdown.download(svc_url, svc_output, quiet=False)
 
 # Load models
 models = {
-    "Decision Tree": pickle.load(open("crop_pred_dtree.pkl", "rb")),
-    "Random Forest": pickle.load(open(output, "rb")),
-    "K-Nearest Neighbors (KNN)": pickle.load(open("crop_pred_knn.pkl", "rb")),
-    "Support Vector Machine (SVM)": pickle.load(open("crop_pred_svc.pkl", "rb"))
+    "Decision Tree": pickle.load(open(dtree_output, "rb")),
+    "Random Forest": pickle.load(open(rand_output, "rb")),
+    "K-Nearest Neighbors (KNN)": pickle.load(open(knn_output, "rb")),
+    "Support Vector Machine (SVM)": pickle.load(open(svc_output, "rb"))
 }
 
 # Streamlit UI
